@@ -1,0 +1,16 @@
+{
+  "name": "gloom",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/loomgmbh/node-gloom.git"
+  },
+  "author": "LoomZero",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/loomgmbh/node-gloom/issues"
+  },
+  "homepage": "https://github.com/loomgmbh/node-gloom#readme"
+}
