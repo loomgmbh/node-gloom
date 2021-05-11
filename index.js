@@ -17,8 +17,7 @@ module.exports = class Gloom {
     }
   }
 
-  constructor(path, configs = {}) {
-    this._path = path;
+  constructor(configs = {}) {
     this._configs = configs;
     this._plugins = null;
     this._cwd = Gloom.findRoot();
@@ -30,13 +29,6 @@ module.exports = class Gloom {
 
   path(...args) {
     return Path.join(this._cwd, ...args);
-  }
-
-  getPath() {
-    if (Path.isAbsolute(this._path)) {
-      return this._path;
-    }
-    return Path.join(process.cwd(), this._path);
   }
 
   mkdirs(cwd, ...dirs) {
@@ -65,7 +57,15 @@ module.exports = class Gloom {
         this.loadModules(module);
       }
     }
-    this.loadDirectory(this.getPath());
+    if (this.config.custom && this.config.custom.tasks) {
+      let customTasks = this.config.custom.tasks;
+      if (!Path.isAbsolute(customTasks)) {
+        customTasks = this.path(customTasks);
+      }
+      if (FS.existsSync(customTasks)) {
+        this.loadDirectory(customTasks);
+      }
+    }
     return this;
   }
 
