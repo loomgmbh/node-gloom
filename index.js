@@ -160,9 +160,9 @@ module.exports = class Gloom {
     if (typeof plugin === 'string') {
       return this._infos[plugin] || null;
     } else {
-      if (this._infos[plugin.plugin()] !== undefined) return this._infos[plugin.plugin()];
-      this._infos[plugin.plugin()] = new Info(plugin);
-      return this._infos[plugin.plugin()];
+      if (this._infos[plugin.plugin] !== undefined) return this._infos[plugin.plugin];
+      this._infos[plugin.plugin] = new Info(plugin);
+      return this._infos[plugin.plugin];
     }
   }
 
