@@ -12,5 +12,11 @@
   "bugs": {
     "url": "https://github.com/loomgmbh/node-gloom/issues"
   },
-  "homepage": "https://github.com/loomgmbh/node-gloom#readme"
+  "homepage": "https://github.com/loomgmbh/node-gloom#readme",
+  "peerDependencies": {
+    "gulp": "^4.0.2"
+  },
+  "dependencies": {
+    "pencl-kit": "git+https://github.com/TerraZero/pencl-kit.git"
+  }
 }
